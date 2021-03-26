@@ -1,3 +1,5 @@
+'use strict'
+
 const todos = getSavedTodos() 
 
 const filters = {
@@ -27,6 +29,8 @@ document.querySelector('#hide-completed').addEventListener('change', (e) => {
     filters.hideCompletd = e.target.checked 
     renderTodos(todos, filters)
 })
+
+
  
 
 
