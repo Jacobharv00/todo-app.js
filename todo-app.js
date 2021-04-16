@@ -13,15 +13,19 @@ document.querySelector('#search-text').addEventListener('input', (e) => {
 })
 
 document.querySelector('#new-todo').addEventListener('submit', (e) => {
+    const text = e.target.elements.text.value.trim()
     e.preventDefault()
-    todos.push({
-        id: uuidv4(),
-        text: e.target.elements.text.value,
-        completed: false
-    })
-    saveTodos(todos)
-    renderTodos(todos, filters)
-    e.target.elements.text.value = ''
+    
+    if (text.length > 0) {
+        todos.push({
+            id: uuidv4(),
+            text, // same as text: text, when you have a variable with same name in same scope you can shorthand it
+            completed: false
+        })
+        saveTodos(todos)
+        renderTodos(todos, filters)
+        e.target.elements.text.value = ''
+    } 
 })
 
 
